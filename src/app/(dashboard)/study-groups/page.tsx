@@ -162,7 +162,7 @@ export default function StudyGroupsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#0081a7] tracking-tight">
+          <h1 className="text-3xl font-extrabold text-[#005F73] tracking-tight">
             Study Group Finder & Live Rooms
           </h1>
           <p className="text-sm text-[#334155] mt-1 font-medium">
@@ -172,7 +172,7 @@ export default function StudyGroupsPage() {
 
         <button
           onClick={() => setShowCreateModal(true)}
-          className="px-5 py-2.5 bg-[#0081a7] text-white font-bold rounded-xl hover:bg-[#00afb9] transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+          className="px-5 py-2.5 bg-[#005F73] text-white font-bold rounded-xl hover:bg-[#0A9396] transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
         >
           <span>+</span> Host New Study Session
         </button>
@@ -202,12 +202,12 @@ export default function StudyGroupsPage() {
                     onClick={() => joinRoom(g)}
                     className={`p-4 rounded-2xl border cursor-pointer transition ${
                       isSelected
-                        ? 'bg-white border-[#0081a7] shadow-md ring-2 ring-[#0081a7]/20'
-                        : 'bg-white border-gray-200 hover:border-[#00afb9]'
+                        ? 'bg-white border-[#005F73] shadow-md ring-2 ring-[#005F73]/20'
+                        : 'bg-white border-gray-200 hover:border-[#0A9396]'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-[#fed9b7] text-[#334155]">
+                      <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-[#E9D8A6] text-[#334155]">
                         {g.subjectCode}
                       </span>
                       <span className="text-[10px] text-green-600 font-bold flex items-center gap-1">
@@ -216,7 +216,7 @@ export default function StudyGroupsPage() {
                       </span>
                     </div>
 
-                    <h3 className="font-bold text-[#0081a7] text-sm mt-1">{g.subject}</h3>
+                    <h3 className="font-bold text-[#005F73] text-sm mt-1">{g.subject}</h3>
 
                     <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
                       <span>📍</span> {g.location}
@@ -241,10 +241,10 @@ export default function StudyGroupsPage() {
               <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-gray-50 rounded-t-3xl">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-extrabold text-base text-[#0081a7]">
+                    <h3 className="font-extrabold text-base text-[#005F73]">
                       {activeRoom.subject}
                     </h3>
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-[#00afb9]/15 text-[#0081a7]">
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-[#0A9396]/15 text-[#005F73]">
                       {activeRoom.subjectCode}
                     </span>
                   </div>
@@ -271,7 +271,7 @@ export default function StudyGroupsPage() {
                       }`}
                     >
                       {isBot ? (
-                        <div className="p-2.5 bg-[#fdfcdc] border border-[#00afb9]/30 rounded-xl text-xs text-center text-[#334155] max-w-md">
+                        <div className="p-2.5 bg-[#faf8f5] border border-[#0A9396]/30 rounded-xl text-xs text-center text-[#334155] max-w-md">
                           🤖 {m.message}
                         </div>
                       ) : (
@@ -282,7 +282,7 @@ export default function StudyGroupsPage() {
                           <div
                             className={`p-3 rounded-2xl text-xs leading-relaxed ${
                               isMe
-                                ? 'bg-[#0081a7] text-white rounded-br-none'
+                                ? 'bg-[#005F73] text-white rounded-br-none'
                                 : 'bg-gray-100 text-gray-800 rounded-bl-none'
                             }`}
                           >
@@ -303,12 +303,12 @@ export default function StudyGroupsPage() {
                   placeholder="Coordinate with study group peers..."
                   value={inputMsg}
                   onChange={(e) => setInputMsg(e.target.value)}
-                  className="flex-1 px-4 py-2 text-xs bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#0081a7]"
+                  className="flex-1 px-4 py-2 text-xs bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#005F73]"
                 />
                 <button
                   type="submit"
                   disabled={!inputMsg.trim()}
-                  className="px-5 py-2 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-bold rounded-xl transition cursor-pointer disabled:opacity-50"
+                  className="px-5 py-2 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-bold rounded-xl transition cursor-pointer disabled:opacity-50"
                 >
                   Send
                 </button>
@@ -327,7 +327,7 @@ export default function StudyGroupsPage() {
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl space-y-4">
             <div className="flex justify-between items-center border-b pb-3">
-              <h2 className="text-xl font-bold text-[#0081a7]">Host Campus Study Session</h2>
+              <h2 className="text-xl font-bold text-[#005F73]">Host Campus Study Session</h2>
               <button
                 onClick={() => setShowCreateModal(false)}
                 className="text-gray-400 hover:text-gray-600 font-bold cursor-pointer"
@@ -347,7 +347,7 @@ export default function StudyGroupsPage() {
                   placeholder="e.g., DBMS - SQL Joins & Normalization"
                   value={newSubject}
                   onChange={(e) => setNewSubject(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-[#0081a7]"
+                  className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-[#005F73]"
                 />
               </div>
 
@@ -360,7 +360,7 @@ export default function StudyGroupsPage() {
                   placeholder="e.g. KCS501"
                   value={newCode}
                   onChange={(e) => setNewCode(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-[#0081a7]"
+                  className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-[#005F73]"
                 />
               </div>
 
@@ -371,7 +371,7 @@ export default function StudyGroupsPage() {
                 <select
                   value={newLocation}
                   onChange={(e) => setNewLocation(e.target.value)}
-                  className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-[#0081a7] bg-white"
+                  className="w-full px-3 py-2 border rounded-xl text-sm outline-none focus:border-[#005F73] bg-white"
                 >
                   {campusHotspots.map((h) => (
                     <option key={h} value={h}>{h}</option>
@@ -390,7 +390,7 @@ export default function StudyGroupsPage() {
                 <button
                   type="submit"
                   disabled={isCreating}
-                  className="px-5 py-2 text-sm font-bold bg-[#0081a7] hover:bg-[#00afb9] text-white rounded-xl shadow-xs"
+                  className="px-5 py-2 text-sm font-bold bg-[#005F73] hover:bg-[#0A9396] text-white rounded-xl shadow-xs"
                 >
                   {isCreating ? 'Creating...' : 'Start Session'}
                 </button>

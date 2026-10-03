@@ -16,8 +16,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fdfcdc]">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#0081a7]" />
+      <div className="min-h-screen flex items-center justify-center bg-[#faf8f5]">
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#005F73]" />
       </div>
     );
   }
@@ -25,7 +25,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   if (!isAuthenticated) return null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fdfcdc]">
+    <div className="min-h-screen flex flex-col bg-[#faf8f5]">
       <Navbar />
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
         {children}

@@ -86,7 +86,7 @@ export default function SkillsPage() {
       {/* ── Header ────────────────────────────────────────────────────── */}
       <div className="pb-4 border-b border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#0081a7] tracking-tight">
+          <h1 className="text-3xl font-extrabold text-[#005F73] tracking-tight">
             Peer Skill Exchange & Mentorship
           </h1>
           <p className="text-sm text-[#334155] mt-1 font-medium">
@@ -96,7 +96,7 @@ export default function SkillsPage() {
 
         <Link
           href="/setup-profile"
-          className="px-4 py-2.5 bg-[#fed9b7] hover:bg-[#fed9b7]/80 text-[#334155] text-xs font-bold rounded-2xl transition shadow-xs flex items-center gap-1.5 self-start sm:self-auto cursor-pointer"
+          className="px-4 py-2.5 bg-[#E9D8A6] hover:bg-[#E9D8A6]/80 text-[#334155] text-xs font-bold rounded-2xl transition shadow-xs flex items-center gap-1.5 self-start sm:self-auto cursor-pointer"
         >
           <span>💡</span> Offer Your Skills
         </Link>
@@ -112,7 +112,7 @@ export default function SkillsPage() {
             value={subjectQuery}
             onChange={(e) => setSubjectQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && fetchPeers()}
-            className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#0081a7]"
+            className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#005F73]"
           />
         </div>
 
@@ -121,7 +121,7 @@ export default function SkillsPage() {
           <select
             value={selectedLevel}
             onChange={(e) => setSelectedLevel(e.target.value)}
-            className="px-3 py-2 text-xs font-bold bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#0081a7]"
+            className="px-3 py-2 text-xs font-bold bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#005F73]"
           >
             <option value="all">All Skill Levels</option>
             <option value="intermediate">Intermediate</option>
@@ -129,7 +129,7 @@ export default function SkillsPage() {
           </select>
           <button
             onClick={fetchPeers}
-            className="px-5 py-2 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-bold rounded-xl transition cursor-pointer"
+            className="px-5 py-2 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-bold rounded-xl transition cursor-pointer"
           >
             Search
           </button>
@@ -150,7 +150,7 @@ export default function SkillsPage() {
           <p className="text-xs text-gray-400">Try searching for other subjects or reset filters.</p>
           <button
             onClick={() => { setSubjectQuery(''); setSelectedLevel('all'); fetchPeers(); }}
-            className="px-4 py-2 bg-[#0081a7] text-white text-xs font-bold rounded-xl"
+            className="px-4 py-2 bg-[#005F73] text-white text-xs font-bold rounded-xl"
           >
             Reset Filters
           </button>
@@ -166,11 +166,11 @@ export default function SkillsPage() {
                 {/* Header Profile Row */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#0081a7] to-[#00afb9] text-white font-black flex items-center justify-center text-lg shadow-xs">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#005F73] to-[#0A9396] text-white font-black flex items-center justify-center text-lg shadow-xs">
                       {peer.fullName[0]?.toUpperCase() || 'P'}
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-[#0081a7] text-base leading-tight">
+                      <h3 className="font-extrabold text-[#005F73] text-base leading-tight">
                         {peer.fullName}
                       </h3>
                       <span className="text-[11px] text-gray-500 block">
@@ -180,7 +180,7 @@ export default function SkillsPage() {
                   </div>
 
                   <div className="text-right">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#fdfcdc] text-[#0081a7] text-xs font-black border border-[#00afb9]/30">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#faf8f5] text-[#005F73] text-xs font-black border border-[#0A9396]/30">
                       ⚡ {peer.karmaScore}
                     </span>
                   </div>
@@ -202,7 +202,7 @@ export default function SkillsPage() {
                     {peer.skillsOffered?.map((skill) => (
                       <span
                         key={skill}
-                        className="text-xs font-bold px-2.5 py-1 rounded-lg bg-[#0081a7]/10 text-[#0081a7]"
+                        className="text-xs font-bold px-2.5 py-1 rounded-lg bg-[#005F73]/10 text-[#005F73]"
                       >
                         {skill}
                       </span>
@@ -234,7 +234,7 @@ export default function SkillsPage() {
               <div className="pt-4 border-t border-gray-100 mt-2">
                 <button
                   onClick={() => handleOpenBooking(peer)}
-                  className="w-full py-2.5 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-extrabold rounded-xl transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-extrabold rounded-xl transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <span>📅</span> Request Mentorship Session
                 </button>
@@ -250,7 +250,7 @@ export default function SkillsPage() {
           <div className="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-4 animate-in fade-in">
             <div className="flex justify-between items-center border-b pb-3">
               <div>
-                <h2 className="text-lg font-black text-[#0081a7]">
+                <h2 className="text-lg font-black text-[#005F73]">
                   Book 1-on-1 Mentorship
                 </h2>
                 <p className="text-xs text-gray-500">with {bookingPeer.fullName}</p>
@@ -275,7 +275,7 @@ export default function SkillsPage() {
                 <div className="flex flex-col gap-2 pt-2">
                   <Link
                     href="/study-groups"
-                    className="w-full py-3 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-bold rounded-xl transition shadow-xs text-center"
+                    className="w-full py-3 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-bold rounded-xl transition shadow-xs text-center"
                   >
                     Enter Live Study Room Chat →
                   </Link>
@@ -299,7 +299,7 @@ export default function SkillsPage() {
                     value={bookedTopic}
                     onChange={(e) => setBookedTopic(e.target.value)}
                     placeholder="e.g., DBMS Normalization or React Custom Hooks"
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7]"
+                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#005F73]"
                   />
                 </div>
 
@@ -310,7 +310,7 @@ export default function SkillsPage() {
                   <select
                     value={bookedLocation}
                     onChange={(e) => setBookedLocation(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7]"
+                    className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#005F73]"
                   >
                     <option value="Library Pod 3 (Quiet Study Zone)">Library Pod 3 (Quiet Study Zone)</option>
                     <option value="CS Lab 2 (Terminal Room)">CS Lab 2 (Terminal Room)</option>
@@ -320,8 +320,8 @@ export default function SkillsPage() {
                   </select>
                 </div>
 
-                <div className="p-3 bg-[#fdfcdc] border border-[#00afb9]/30 rounded-xl text-xs space-y-1">
-                  <div className="font-bold text-[#0081a7] flex items-center gap-1">
+                <div className="p-3 bg-[#faf8f5] border border-[#0A9396]/30 rounded-xl text-xs space-y-1">
+                  <div className="font-bold text-[#005F73] flex items-center gap-1">
                     <span>⚡</span> Peer Exchange Incentive
                   </div>
                   <p className="text-gray-600 text-[11px]">
@@ -340,7 +340,7 @@ export default function SkillsPage() {
                   <button
                     type="submit"
                     disabled={bookingLoading}
-                    className="flex-2 py-3 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-extrabold rounded-xl transition shadow-xs cursor-pointer disabled:opacity-50"
+                    className="flex-2 py-3 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-extrabold rounded-xl transition shadow-xs cursor-pointer disabled:opacity-50"
                   >
                     {bookingLoading ? 'Scheduling...' : 'Schedule & Open Room'}
                   </button>

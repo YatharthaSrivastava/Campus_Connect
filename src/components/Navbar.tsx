@@ -24,20 +24,20 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-[#00afb9]/30 shadow-xs">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#0A9396]/25 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo & Institution Branding */}
           <Link href="/dashboard" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#0081a7] flex items-center justify-center text-white text-xl shadow-xs">
+            <div className="w-10 h-10 rounded-xl bg-[#005F73] flex items-center justify-center text-white text-xl shadow-xs">
               🎓
             </div>
             <div>
-              <span className="font-extrabold text-xl tracking-tight text-[#0081a7]">
+              <span className="font-extrabold text-xl tracking-tight text-[#005F73]">
                 CampusConnect
               </span>
               <span
-                className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-[#fed9b7] text-[#334155] border border-[#00afb9]/20 max-w-[190px] truncate align-middle"
+                className="hidden sm:inline-block ml-2 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#E9D8A6] text-[#001219] border border-[#0A9396]/20 max-w-[190px] truncate align-middle"
                 title={user?.collegeName || 'All Colleges'}
               >
                 {collegeDisplay}
@@ -54,10 +54,10 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`px-3 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-1.5 ${
+                    className={`px-3 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-1.5 ${
                       isActive
-                        ? 'bg-[#0081a7] text-white shadow-xs'
-                        : 'text-[#334155] hover:bg-[#fed9b7]/30 hover:text-[#0081a7]'
+                        ? 'bg-[#005F73] text-white shadow-xs'
+                        : 'text-[#001219] hover:bg-[#E9D8A6]/40 hover:text-[#005F73]'
                     }`}
                   >
                     <span>{link.icon}</span>
@@ -76,16 +76,16 @@ export default function Navbar() {
                 <button
                   onClick={() => setShowKarmaModal(true)}
                   title="Click to view Karma History & Rewards"
-                  className="flex items-center gap-1.5 bg-[#fdfcdc] hover:bg-[#fed9b7]/40 border border-[#00afb9] px-3 py-1.5 rounded-full shadow-xs transition cursor-pointer group"
+                  className="flex items-center gap-1.5 bg-[#faf8f5] hover:bg-[#E9D8A6]/50 border border-[#0A9396] px-3 py-1.5 rounded-full shadow-xs transition cursor-pointer group"
                 >
                   <span className="text-sm group-hover:scale-125 transition transform">⚡</span>
-                  <span className="text-xs font-bold text-[#0081a7]">
+                  <span className="text-xs font-extrabold text-[#005F73]">
                     {user?.karmaScore ?? 10} Karma
                   </span>
                 </button>
 
                 {/* Verified Badge */}
-                <span className="hidden sm:inline-flex items-center text-xs font-bold px-2.5 py-1 rounded-full bg-[#00afb9]/15 text-[#0081a7] border border-[#00afb9]/30">
+                <span className="hidden sm:inline-flex items-center text-xs font-bold px-2.5 py-1 rounded-full bg-[#94D2BD]/30 text-[#005F73] border border-[#0A9396]/30">
                   ✓ Verified Student
                 </span>
 
@@ -94,13 +94,13 @@ export default function Navbar() {
                   <Link
                     href="/profile"
                     title="View Profile & Karma History"
-                    className="w-8 h-8 rounded-full bg-[#0081a7] hover:bg-[#00afb9] text-white flex items-center justify-center font-bold text-xs transition cursor-pointer"
+                    className="w-8 h-8 rounded-full bg-[#005F73] hover:bg-[#0A9396] text-white flex items-center justify-center font-bold text-xs transition cursor-pointer"
                   >
                     {user?.fullName?.[0]?.toUpperCase() || 'P'}
                   </Link>
                   <button
                     onClick={logout}
-                    className="text-xs font-medium text-gray-500 hover:text-[#f07167] transition cursor-pointer"
+                    className="text-xs font-medium text-gray-500 hover:text-[#BB3E03] transition cursor-pointer"
                   >
                     Logout
                   </button>
@@ -110,13 +110,13 @@ export default function Navbar() {
               <div className="flex items-center gap-2">
                 <Link
                   href="/"
-                  className="px-4 py-2 text-sm font-bold text-[#0081a7] hover:bg-[#fed9b7]/30 rounded-lg transition"
+                  className="px-4 py-2 text-sm font-bold text-[#005F73] hover:bg-[#E9D8A6]/40 rounded-xl transition"
                 >
                   Log In
                 </Link>
                 <Link
                   href="/"
-                  className="px-4 py-2 text-sm font-bold text-white bg-[#0081a7] hover:bg-[#00afb9] rounded-lg transition shadow-xs"
+                  className="px-4 py-2 text-sm font-bold text-white bg-[#005F73] hover:bg-[#0A9396] rounded-xl transition shadow-xs"
                 >
                   Get Started
                 </Link>
@@ -132,10 +132,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-1 text-xs font-semibold whitespace-nowrap rounded-md ${
+                className={`px-3 py-1 text-xs font-semibold whitespace-nowrap rounded-lg ${
                   pathname === link.href
-                    ? 'bg-[#0081a7] text-white'
-                    : 'text-[#334155] bg-gray-100'
+                    ? 'bg-[#005F73] text-white'
+                    : 'text-[#001219] bg-gray-100'
                 }`}
               >
                 {link.icon} {link.name}

@@ -1,41 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfcdc;
-  --foreground: #334155;
-  --primary-navy: #0081a7;
-  --secondary-teal: #00afb9;
-  --neutral-cream: #fdfcdc;
-  --accent-peach: #fed9b7;
-  --highlight-coral: #f07167;
-  --body-text: #334155;
+  /* Ocean Sunset 10-Color Palette Specification (v2.0.0 Integrated) */
+  --palette-night: #001219;
+  --palette-ocean: #005F73;
+  --palette-teal: #0A9396;
+  --palette-mint: #94D2BD;
+  --palette-sand: #E9D8A6;
+  --palette-amber: #EE9B00;
+  --palette-bronze: #CA6702;
+  --palette-rust: #BB3E03;
+  --palette-crimson: #AE2012;
+  --palette-burgundy: #9B2226;
+
+  /* Harmonious theme tokens */
+  --background: #faf8f5;
+  --foreground: #001219;
+  --primary-navy: #005F73;
+  --secondary-teal: #0A9396;
+  --neutral-cream: #E9D8A6;
+  --accent-peach: #EE9B00;
+  --highlight-coral: #BB3E03;
+  --body-text: #001219;
 }
 
 body {
-  background-color: var(--neutral-cream);
-  color: var(--body-text);
+  background-color: #faf8f5;
+  color: #001219;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   min-height: 100vh;
 }
 
-/* Custom UI utility classes matching UI/UX Design Specification */
-.bg-navy { background-color: #0081a7; }
-.text-navy { color: #0081a7; }
-.border-navy { border-color: #0081a7; }
+/* Custom UI Palette Classes (Ocean Sunset v2.0.0) */
+.bg-night { background-color: #001219; }
+.text-night { color: #001219; }
+.border-night { border-color: #001219; }
 
-.bg-teal { background-color: #00afb9; }
-.text-teal { color: #00afb9; }
-.border-teal { border-color: #00afb9; }
+.bg-ocean { background-color: #005F73; }
+.text-ocean { color: #005F73; }
+.border-ocean { border-color: #005F73; }
 
-.bg-cream { background-color: #fdfcdc; }
-.text-cream { color: #fdfcdc; }
+.bg-teal-sunset { background-color: #0A9396; }
+.text-teal-sunset { color: #0A9396; }
+.border-teal-sunset { border-color: #0A9396; }
 
-.bg-peach { background-color: #fed9b7; }
-.text-peach { color: #fed9b7; }
-.border-peach { border-color: #fed9b7; }
+.bg-mint-sunset { background-color: #94D2BD; }
+.text-mint-sunset { color: #94D2BD; }
+.border-mint-sunset { border-color: #94D2BD; }
 
-.bg-coral { background-color: #f07167; }
-.text-coral { color: #f07167; }
-.border-coral { border-color: #f07167; }
+.bg-sand-sunset { background-color: #E9D8A6; }
+.text-sand-sunset { color: #E9D8A6; }
+.border-sand-sunset { border-color: #E9D8A6; }
 
-.text-body { color: #334155; }
+.bg-amber-sunset { background-color: #EE9B00; }
+.text-amber-sunset { color: #EE9B00; }
+.border-amber-sunset { border-color: #EE9B00; }
+
+.bg-bronze-sunset { background-color: #CA6702; }
+.text-bronze-sunset { color: #CA6702; }
+.border-bronze-sunset { border-color: #CA6702; }
+
+.bg-rust-sunset { background-color: #BB3E03; }
+.text-rust-sunset { color: #BB3E03; }
+.border-rust-sunset { border-color: #BB3E03; }
+
+.bg-crimson-sunset { background-color: #AE2012; }
+.text-crimson-sunset { color: #AE2012; }
+.border-crimson-sunset { border-color: #AE2012; }
+
+.bg-burgundy-sunset { background-color: #9B2226; }
+.text-burgundy-sunset { color: #9B2226; }
+.border-burgundy-sunset { border-color: #9B2226; }
+
+/* Backward compatibility mappings to new Ocean Sunset specifications */
+.bg-navy { background-color: #005F73; }
+.text-navy { color: #005F73; }
+.border-navy { border-color: #005F73; }
+
+.bg-teal { background-color: #0A9396; }
+.text-teal { color: #0A9396; }
+.border-teal { border-color: #0A9396; }
+
+.bg-cream { background-color: #E9D8A6; }
+.text-cream { color: #E9D8A6; }
+
+.bg-peach { background-color: #EE9B00; }
+.text-peach { color: #EE9B00; }
+.border-peach { border-color: #EE9B00; }
+
+.bg-coral { background-color: #BB3E03; }
+.text-coral { color: #BB3E03; }
+.border-coral { border-color: #BB3E03; }
+
+.text-body { color: #001219; }

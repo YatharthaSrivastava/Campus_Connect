@@ -134,8 +134,8 @@ export default function SetupProfilePage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fdfcdc]">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#0081a7]" />
+      <div className="min-h-screen flex items-center justify-center bg-[#faf8f5]">
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#005F73]" />
       </div>
     );
   }
@@ -143,17 +143,17 @@ export default function SetupProfilePage() {
   // Not authenticated warning
   if (!isAuthenticated && !localStorage.getItem('cc_token')) {
     return (
-      <div className="min-h-screen bg-[#fdfcdc] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#faf8f5] flex items-center justify-center px-4">
         <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-lg text-center border border-gray-200">
           <div className="text-4xl mb-3">🔒</div>
-          <h2 className="text-xl font-black text-[#0081a7] mb-2">Authentication Required</h2>
-          <p className="text-sm text-[#334155] mb-6">
+          <h2 className="text-xl font-black text-[#005F73] mb-2">Authentication Required</h2>
+          <p className="text-sm text-gray-600 mb-6">
             You need to be logged in to set up your profile. Please sign in or create an account.
           </p>
           <div className="flex flex-col gap-3">
             <Link
               href="/"
-              className="py-3 px-4 bg-[#0081a7] text-white font-bold rounded-xl hover:bg-[#00afb9] transition"
+              className="py-3 px-4 bg-[#005F73] text-white font-bold rounded-xl hover:bg-[#0A9396] transition"
             >
               Go to Home & Sign In
             </Link>
@@ -164,11 +164,11 @@ export default function SetupProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#fdfcdc] py-8 px-4 text-[#334155]">
+    <div className="min-h-screen bg-[#faf8f5] py-8 px-4 text-[#001219]">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
           <span className="text-4xl">🎓</span>
-          <h1 className="text-2xl font-black text-[#0081a7] mt-2">Complete Your Profile</h1>
+          <h1 className="text-2xl font-black text-[#005F73] mt-2">Complete Your Profile</h1>
           <p className="text-gray-500 text-sm mt-1">
             Welcome, <strong>{user?.fullName || 'Student'}</strong>! Let&apos;s get your campus profile ready.
           </p>
@@ -176,22 +176,22 @@ export default function SetupProfilePage() {
 
         <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-sm text-red-600 font-medium">
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-sm text-[#BB3E03] font-semibold">
               ⚠️ {error}
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* College Selection */}
-            <div className="p-4 bg-[#fdfcdc] border border-[#00afb9]/30 rounded-2xl space-y-2">
-              <label className="block text-xs font-black text-[#0081a7] uppercase tracking-wider">
+            <div className="p-4 bg-[#E9D8A6]/25 border border-[#0A9396]/30 rounded-2xl space-y-2">
+              <label className="block text-xs font-black text-[#005F73] uppercase tracking-wider">
                 🏫 College / University *
               </label>
               <select
                 value={collegeName}
                 onChange={(e) => { setCollegeName(e.target.value); setError(''); }}
                 required
-                className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-[#334155] outline-none focus:border-[#0081a7]"
+                className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-[#001219] outline-none focus:border-[#0A9396]"
               >
                 {COLLEGES.map((c) => (
                   <option key={c.id} value={c.name}>
@@ -208,18 +208,18 @@ export default function SetupProfilePage() {
                   placeholder="Enter your College / University name..."
                   value={customCollege}
                   onChange={(e) => { setCustomCollege(e.target.value); setError(''); }}
-                  className="w-full px-4 py-2.5 bg-white border border-[#00afb9] rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#00afb9]/30 mt-2"
+                  className="w-full px-4 py-2.5 bg-white border border-[#0A9396] rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#0A9396]/30 mt-2"
                 />
               )}
             </div>
 
             {/* Academic Details */}
             <div>
-              <h2 className="text-base font-extrabold text-[#0081a7] mb-3">📋 Academic Details</h2>
+              <h2 className="text-base font-extrabold text-[#005F73] mb-3">📋 Academic Details</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1">
-                    College ID / Roll No. <span className="text-[#f07167]">*</span>
+                  <label className="block text-xs font-bold text-[#001219] mb-1">
+                    College ID / Roll No. <span className="text-[#BB3E03]">*</span>
                   </label>
                   <input
                     type="text"
@@ -227,18 +227,18 @@ export default function SetupProfilePage() {
                     onChange={(e) => { setCollegeId(e.target.value); setError(''); }}
                     placeholder="e.g. 2210990001"
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1">
-                    Department <span className="text-[#f07167]">*</span>
+                  <label className="block text-xs font-bold text-[#001219] mb-1">
+                    Department <span className="text-[#BB3E03]">*</span>
                   </label>
                   <select
                     value={department}
                     onChange={(e) => { setDepartment(e.target.value); setError(''); }}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                   >
                     <option value="">Select department</option>
                     {DEPARTMENTS.map((d) => (
@@ -247,14 +247,14 @@ export default function SetupProfilePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1">
-                    Academic Year <span className="text-[#f07167]">*</span>
+                  <label className="block text-xs font-bold text-[#001219] mb-1">
+                    Academic Year <span className="text-[#BB3E03]">*</span>
                   </label>
                   <select
                     value={academicYear}
                     onChange={(e) => { setAcademicYear(e.target.value); setError(''); }}
                     required
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                   >
                     <option value="">Select year</option>
                     {[1, 2, 3, 4].map((y) => (
@@ -263,14 +263,14 @@ export default function SetupProfilePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#334155] mb-1">Section</label>
+                  <label className="block text-xs font-bold text-[#001219] mb-1">Section</label>
                   <input
                     type="text"
                     value={section}
                     onChange={(e) => setSection(e.target.value)}
                     placeholder="e.g. A, B, C"
                     maxLength={5}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                    className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                   />
                 </div>
               </div>
@@ -278,23 +278,23 @@ export default function SetupProfilePage() {
 
             {/* Bio */}
             <div>
-              <label className="block text-xs font-bold text-[#334155] mb-1">
+              <label className="block text-xs font-bold text-[#001219] mb-1">
                 Short Bio (optional)
               </label>
               <textarea
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
-                placeholder="Tell your campus community about yourself, your interests, and study habits..."
+                placeholder="Tell your campus peers about yourself, your interests, and study habits..."
                 maxLength={300}
                 rows={3}
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50 resize-none"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70 resize-none"
               />
               <p className="text-xs text-gray-400 text-right mt-1">{bio.length}/300</p>
             </div>
 
             {/* Skills Offered */}
             <div>
-              <h2 className="text-base font-extrabold text-[#0081a7] mb-1">
+              <h2 className="text-base font-extrabold text-[#005F73] mb-1">
                 💡 Skills You Can Teach / Offer
               </h2>
               <p className="text-xs text-gray-500 mb-3">
@@ -308,8 +308,8 @@ export default function SetupProfilePage() {
                     onClick={() => toggleSkill(skill, 'offer')}
                     className={`text-xs px-3 py-1.5 rounded-full border transition font-bold cursor-pointer ${
                       skillsOffered.includes(skill)
-                        ? 'bg-[#0081a7] text-white border-[#0081a7]'
-                        : 'bg-white text-gray-600 border-gray-200 hover:border-[#0081a7]'
+                        ? 'bg-[#005F73] text-white border-[#005F73]'
+                        : 'bg-white text-gray-600 border-gray-200 hover:border-[#0A9396]'
                     }`}
                   >
                     {skill} {skillsOffered.includes(skill) ? '✓' : '+'}
@@ -323,12 +323,12 @@ export default function SetupProfilePage() {
                   onChange={(e) => setCustomSkillOffer(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomSkill('offer'))}
                   placeholder="Add custom skill..."
-                  className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] bg-gray-50"
+                  className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] bg-gray-50/70"
                 />
                 <button
                   type="button"
                   onClick={() => addCustomSkill('offer')}
-                  className="px-4 py-2 bg-[#fed9b7] text-[#334155] rounded-xl text-sm font-bold hover:bg-[#fed9b7]/80 transition cursor-pointer"
+                  className="px-4 py-2 bg-[#E9D8A6] text-[#001219] rounded-xl text-sm font-bold hover:bg-[#E9D8A6]/80 transition cursor-pointer"
                 >
                   Add
                 </button>
@@ -337,7 +337,7 @@ export default function SetupProfilePage() {
 
             {/* Skills Needed */}
             <div>
-              <h2 className="text-base font-extrabold text-[#0081a7] mb-1">
+              <h2 className="text-base font-extrabold text-[#005F73] mb-1">
                 📚 Skills You Want to Learn
               </h2>
               <p className="text-xs text-gray-500 mb-3">
@@ -351,8 +351,8 @@ export default function SetupProfilePage() {
                     onClick={() => toggleSkill(skill, 'need')}
                     className={`text-xs px-3 py-1.5 rounded-full border transition font-bold cursor-pointer ${
                       skillsNeeded.includes(skill)
-                        ? 'bg-[#00afb9] text-white border-[#00afb9]'
-                        : 'bg-white text-gray-600 border-gray-200 hover:border-[#00afb9]'
+                        ? 'bg-[#0A9396] text-white border-[#0A9396]'
+                        : 'bg-white text-gray-600 border-gray-200 hover:border-[#0A9396]'
                     }`}
                   >
                     {skill} {skillsNeeded.includes(skill) ? '✓' : '+'}
@@ -366,12 +366,12 @@ export default function SetupProfilePage() {
                   onChange={(e) => setCustomSkillNeed(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomSkill('need'))}
                   placeholder="Add custom skill..."
-                  className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#00afb9] bg-gray-50"
+                  className="flex-1 px-3 py-2 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] bg-gray-50/70"
                 />
                 <button
                   type="button"
                   onClick={() => addCustomSkill('need')}
-                  className="px-4 py-2 bg-[#fed9b7] text-[#334155] rounded-xl text-sm font-bold hover:bg-[#fed9b7]/80 transition cursor-pointer"
+                  className="px-4 py-2 bg-[#E9D8A6] text-[#001219] rounded-xl text-sm font-bold hover:bg-[#E9D8A6]/80 transition cursor-pointer"
                 >
                   Add
                 </button>
@@ -379,11 +379,11 @@ export default function SetupProfilePage() {
             </div>
 
             {/* Karma Notice */}
-            <div className="p-4 bg-[#fed9b7]/20 border border-[#fed9b7] rounded-2xl text-xs text-[#334155] flex gap-3 items-center">
+            <div className="p-4 bg-[#E9D8A6]/25 border border-[#EE9B00]/40 rounded-2xl text-xs text-[#001219] flex gap-3 items-center">
               <span className="text-xl">⚡</span>
               <div>
                 <strong>Karma Balance:</strong> You have{' '}
-                <strong className="text-[#0081a7]">{user?.karmaScore ?? 10} Karma tokens</strong>.
+                <strong className="text-[#005F73]">{user?.karmaScore ?? 10} Karma tokens</strong>.
                 Earn +15 Karma for every verified marketplace exchange and peer mentorship session!
               </div>
             </div>
@@ -391,7 +391,7 @@ export default function SetupProfilePage() {
             <button
               type="submit"
               disabled={isSaving}
-              className="w-full py-4 bg-[#0081a7] hover:bg-[#00afb9] text-white font-black rounded-2xl disabled:opacity-50 transition text-base shadow-md cursor-pointer"
+              className="w-full py-4 bg-[#005F73] hover:bg-[#0A9396] text-white font-black rounded-2xl disabled:opacity-50 transition text-base shadow-md cursor-pointer"
             >
               {isSaving ? (
                 <span className="flex items-center justify-center gap-2">

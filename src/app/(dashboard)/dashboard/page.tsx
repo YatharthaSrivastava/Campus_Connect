@@ -49,8 +49,8 @@ export default function DashboardPage() {
       icon: '📦',
       href: '/marketplace',
       action: 'Browse Listings →',
-      bgColor: 'bg-[#0081a7]/10',
-      accentColor: '#0081a7',
+      bgColor: 'bg-[#005F73]/10',
+      accentColor: '#005F73',
     },
     {
       title: 'Peer Skill Exchange',
@@ -59,8 +59,8 @@ export default function DashboardPage() {
       icon: '🧑‍🏫',
       href: '/skills',
       action: 'Find Peer Mentors →',
-      bgColor: 'bg-[#00afb9]/15',
-      accentColor: '#00afb9',
+      bgColor: 'bg-[#0A9396]/15',
+      accentColor: '#0A9396',
     },
     {
       title: 'Real-Time Study Finder',
@@ -69,8 +69,8 @@ export default function DashboardPage() {
       icon: '📚',
       href: '/study-groups',
       action: 'Join Study Rooms →',
-      bgColor: 'bg-[#fed9b7]/30',
-      accentColor: '#0081a7',
+      bgColor: 'bg-[#E9D8A6]/30',
+      accentColor: '#005F73',
     },
     {
       title: 'Cryptographic Handshake',
@@ -79,8 +79,8 @@ export default function DashboardPage() {
       icon: '🤝',
       href: '/handshake',
       action: 'Open Handshake Screen →',
-      bgColor: 'bg-[#f07167]/15',
-      accentColor: '#f07167',
+      bgColor: 'bg-[#BB3E03]/15',
+      accentColor: '#BB3E03',
     },
   ];
 
@@ -90,17 +90,17 @@ export default function DashboardPage() {
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <div className="flex flex-wrap items-center gap-2 mb-2">
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#00afb9]/15 text-[#0081a7] border border-[#00afb9]/30">
-              ✓ Verified Student Member
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#94D2BD]/30 text-[#005F73] border border-[#0A9396]/30">
+              ✓ Verified Member
             </span>
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#fed9b7] text-[#334155] border border-[#00afb9]/20" title={collegeDisplay}>
+            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#E9D8A6] text-[#001219] border border-[#0A9396]/20" title={collegeDisplay}>
               🏫 {collegeDisplay}
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0081a7] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#005F73] tracking-tight">
             Welcome, {user?.fullName || 'Student'}!
           </h1>
-          <p className="text-sm text-[#334155] mt-1 font-medium max-w-xl">
+          <p className="text-sm text-gray-600 mt-1 font-medium max-w-xl">
             Trade Gear. Share Skills. Match Study Sessions — inside your verified campus network.
           </p>
         </div>
@@ -110,22 +110,22 @@ export default function DashboardPage() {
           <button
             onClick={() => setShowKarmaModal(true)}
             title="Click to view Karma Collection History & Rewards"
-            className="bg-[#fdfcdc] hover:bg-[#fed9b7]/40 border-2 border-[#00afb9] rounded-2xl p-4 text-center min-w-[150px] shadow-xs transition cursor-pointer group"
+            className="bg-[#faf8f5] hover:bg-[#E9D8A6]/40 border-2 border-[#0A9396] rounded-2xl p-4 text-center min-w-[150px] shadow-xs transition cursor-pointer group"
           >
             <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
               Reputation
             </span>
-            <div className="text-3xl font-black text-[#0081a7] my-0.5 group-hover:scale-105 transition transform">
+            <div className="text-3xl font-black text-[#005F73] my-0.5 group-hover:scale-105 transition transform">
               ⚡ {user?.karmaScore ?? 10}
             </div>
-            <span className="text-[11px] font-extrabold text-[#00afb9] block underline">
+            <span className="text-[11px] font-extrabold text-[#0A9396] block underline">
               View Karma History ➔
             </span>
           </button>
 
           <Link
             href="/profile"
-            className="px-4 py-4 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-bold rounded-2xl transition shadow-xs flex flex-col items-center justify-center gap-1 cursor-pointer"
+            className="px-4 py-4 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-bold rounded-2xl transition shadow-xs flex flex-col items-center justify-center gap-1 cursor-pointer"
           >
             <span className="text-lg">👤</span>
             <span>My Profile</span>
@@ -134,22 +134,22 @@ export default function DashboardPage() {
       </div>
 
       {/* ── Student Basic Info & Profile Card ─────────────────────────── */}
-      <div className="bg-[#fdfcdc] rounded-3xl p-6 border border-[#00afb9]/30 shadow-xs">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#00afb9]/20">
+      <div className="bg-[#faf8f5] rounded-3xl p-6 border border-[#0A9396]/30 shadow-xs">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#0A9396]/20">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-[#0081a7] text-white font-black flex items-center justify-center text-xl shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-[#005F73] text-white font-black flex items-center justify-center text-xl shadow-xs">
               {user?.fullName?.[0]?.toUpperCase() || 'S'}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base font-black text-[#0081a7]">
+                <h2 className="text-base font-black text-[#005F73]">
                   {user?.fullName || 'Student'}
                 </h2>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#00afb9]/20 text-[#0081a7]">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#94D2BD]/30 text-[#005F73]">
                   Active Member
                 </span>
               </div>
-              <p className="text-xs text-[#334155] font-medium mt-0.5">
+              <p className="text-xs text-gray-600 font-medium mt-0.5">
                 {collegeDisplay}
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function DashboardPage() {
 
           <Link
             href="/setup-profile"
-            className="text-xs font-bold text-[#0081a7] hover:underline flex items-center gap-1 cursor-pointer"
+            className="text-xs font-bold text-[#005F73] hover:underline flex items-center gap-1 cursor-pointer"
           >
             <span>✏️</span> Edit Details
           </Link>
@@ -167,33 +167,33 @@ export default function DashboardPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-xs">
           <div className="bg-white p-3 rounded-2xl border border-gray-200">
             <span className="text-gray-400 block text-[11px] font-medium">Department</span>
-            <span className="font-extrabold text-[#334155]">{user?.department || 'Computer Science'}</span>
+            <span className="font-extrabold text-[#001219]">{user?.department || 'Computer Science'}</span>
           </div>
 
           <div className="bg-white p-3 rounded-2xl border border-gray-200">
             <span className="text-gray-400 block text-[11px] font-medium">Academic Year</span>
-            <span className="font-extrabold text-[#334155]">
+            <span className="font-extrabold text-[#001219]">
               Year {user?.academicYear || 2} {user?.section ? `(Sec ${user.section})` : ''}
             </span>
           </div>
 
           <div className="bg-white p-3 rounded-2xl border border-gray-200">
             <span className="text-gray-400 block text-[11px] font-medium">College Roll / ID</span>
-            <span className="font-extrabold font-mono text-[#0081a7]">{user?.collegeId || 'PENDING'}</span>
+            <span className="font-extrabold font-mono text-[#005F73]">{user?.collegeId || 'VERIFIED'}</span>
           </div>
 
           <div className="bg-white p-3 rounded-2xl border border-gray-200">
             <span className="text-gray-400 block text-[11px] font-medium">Karma Status</span>
-            <span className="font-extrabold text-amber-700">⚡ {user?.karmaScore ?? 10} Tokens</span>
+            <span className="font-extrabold text-[#CA6702]">⚡ {user?.karmaScore ?? 10} Tokens</span>
           </div>
         </div>
 
         {/* Skills Summary */}
         {user?.skillsOffered && user.skillsOffered.length > 0 && (
-          <div className="mt-4 pt-3 border-t border-[#00afb9]/15 flex items-center gap-2 flex-wrap">
+          <div className="mt-4 pt-3 border-t border-[#0A9396]/15 flex items-center gap-2 flex-wrap">
             <span className="text-[11px] font-bold text-gray-500">Your Offered Skills:</span>
             {user.skillsOffered.map((s) => (
-              <span key={s} className="px-2.5 py-0.5 bg-white text-[#0081a7] font-bold text-[10px] rounded-full border border-[#0081a7]/20">
+              <span key={s} className="px-2.5 py-0.5 bg-white text-[#005F73] font-bold text-[10px] rounded-full border border-[#005F73]/20">
                 {s}
               </span>
             ))}
@@ -204,10 +204,10 @@ export default function DashboardPage() {
       {/* ── Quick Action Shortcuts ────────────────────────────────────── */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { label: 'List Academic Gear', href: '/marketplace', icon: '📦', color: 'hover:border-[#0081a7]' },
-          { label: 'Find Peer Mentor', href: '/skills', icon: '🧑‍🏫', color: 'hover:border-[#00afb9]' },
-          { label: 'Join Study Pod', href: '/study-groups', icon: '📚', color: 'hover:border-indigo-400' },
-          { label: 'Explore Campus Map', href: '/map', icon: '🗺️', color: 'hover:border-emerald-400' },
+          { label: 'List Academic Gear', href: '/marketplace', icon: '📦', color: 'hover:border-[#005F73]' },
+          { label: 'Find Peer Mentor', href: '/skills', icon: '🧑‍🏫', color: 'hover:border-[#0A9396]' },
+          { label: 'Join Study Pod', href: '/study-groups', icon: '📚', color: 'hover:border-[#001219]' },
+          { label: 'Explore Campus Map', href: '/map', icon: '🗺️', color: 'hover:border-[#EE9B00]' },
         ].map((action) => (
           <Link
             key={action.label}
@@ -215,7 +215,7 @@ export default function DashboardPage() {
             className={`p-4 bg-white rounded-2xl border border-gray-200 shadow-xs transition flex items-center gap-3 ${action.color}`}
           >
             <span className="text-2xl">{action.icon}</span>
-            <span className="text-xs font-bold text-[#334155] leading-tight">{action.label}</span>
+            <span className="text-xs font-bold text-[#001219] leading-tight">{action.label}</span>
           </Link>
         ))}
       </div>
@@ -234,13 +234,13 @@ export default function DashboardPage() {
                 >
                   {p.icon}
                 </div>
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#fed9b7] text-[#334155]">
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#E9D8A6] text-[#001219]">
                   {p.tag}
                 </span>
               </div>
 
-              <h2 className="text-xl font-extrabold text-[#0081a7]">{p.title}</h2>
-              <p className="text-xs text-[#334155] mt-2 leading-relaxed font-medium">
+              <h2 className="text-xl font-extrabold text-[#005F73]">{p.title}</h2>
+              <p className="text-xs text-gray-600 mt-2 leading-relaxed font-medium">
                 {p.desc}
               </p>
             </div>
@@ -248,7 +248,7 @@ export default function DashboardPage() {
             <div className="pt-4 mt-6 border-t border-gray-100">
               <Link
                 href={p.href}
-                className="w-full py-2.5 px-4 rounded-xl text-center text-sm font-bold text-white bg-[#0081a7] hover:bg-[#00afb9] transition block shadow-xs"
+                className="w-full py-2.5 px-4 rounded-xl text-center text-sm font-bold text-white bg-[#005F73] hover:bg-[#0A9396] transition block shadow-xs"
               >
                 {p.action}
               </Link>
@@ -261,15 +261,15 @@ export default function DashboardPage() {
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-xs space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <div>
-            <h2 className="text-xl font-black text-[#0081a7] flex items-center gap-2">
+            <h2 className="text-xl font-black text-[#005F73] flex items-center gap-2">
               <span>⚡</span> Campus Karma Leaderboard
             </h2>
             <p className="text-xs text-gray-500 mt-0.5">
-              Recognizing top PSIT peers for verified academic handshakes and mentorship.
+              Recognizing top peers for verified academic handshakes and mentorship.
             </p>
           </div>
-          <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#fed9b7] text-[#334155]">
-            PSIT Campus Rank
+          <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#E9D8A6] text-[#001219]">
+            Campus Rank
           </span>
         </div>
 
@@ -297,21 +297,21 @@ export default function DashboardPage() {
                     <tr
                       key={peer._id}
                       className={`hover:bg-gray-50 transition ${
-                        isCurrentUser ? 'bg-[#fdfcdc] font-bold' : ''
+                        isCurrentUser ? 'bg-[#faf8f5] font-bold' : ''
                       }`}
                     >
                       <td className="py-3 px-3 font-bold text-sm">
                         {idx < 3 ? rankIcons[idx] : `#${rankIcons[idx]}`}
                       </td>
                       <td className="py-3 px-3">
-                        <div className="font-extrabold text-[#0081a7]">
+                        <div className="font-extrabold text-[#005F73]">
                           {peer.fullName} {isCurrentUser && '(You)'}
                         </div>
-                        <span className="text-[10px] text-[#00afb9] font-bold">
-                          ✓ Verified PSIT
+                        <span className="text-[10px] text-[#0A9396] font-bold">
+                          ✓ Verified Peer
                         </span>
                       </td>
-                      <td className="py-3 px-3 text-[#334155]">
+                      <td className="py-3 px-3 text-[#001219]">
                         {peer.department || 'Computer Science'}
                       </td>
                       <td className="py-3 px-3">
@@ -326,7 +326,7 @@ export default function DashboardPage() {
                           ))}
                         </div>
                       </td>
-                      <td className="py-3 px-3 text-right font-black text-sm text-[#0081a7]">
+                      <td className="py-3 px-3 text-right font-black text-sm text-[#005F73]">
                         ⚡ {peer.karmaScore}
                       </td>
                     </tr>
@@ -344,20 +344,20 @@ export default function DashboardPage() {
           🎬 The CampusConnect Verified Journey
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-          <div className="p-3 bg-[#0081a7]/10 rounded-xl">
-            <strong className="text-[#0081a7] block mb-1">01. Discover</strong>
+          <div className="p-3 bg-[#005F73]/10 rounded-xl">
+            <strong className="text-[#005F73] block mb-1">01. Discover</strong>
             Browse academic equipment or find DBMS / OS peer mentors.
           </div>
-          <div className="p-3 bg-[#00afb9]/15 rounded-xl">
-            <strong className="text-[#0081a7] block mb-1">02. Coordinate</strong>
+          <div className="p-3 bg-[#0A9396]/15 rounded-xl">
+            <strong className="text-[#005F73] block mb-1">02. Coordinate</strong>
             Join study pods or schedule 1-on-1 sessions at Library Pod 3.
           </div>
-          <div className="p-3 bg-[#fed9b7]/40 rounded-xl">
-            <strong className="text-[#334155] block mb-1">03. Handshake</strong>
+          <div className="p-3 bg-[#E9D8A6]/40 rounded-xl">
+            <strong className="text-[#001219] block mb-1">03. Handshake</strong>
             Meet in Safe Exchange Zones and verify with 6-digit OTP & QR.
           </div>
-          <div className="p-3 bg-[#f07167]/15 rounded-xl">
-            <strong className="text-[#f07167] block mb-1">04. Earn & Review</strong>
+          <div className="p-3 bg-[#BB3E03]/15 rounded-xl">
+            <strong className="text-[#BB3E03] block mb-1">04. Earn & Review</strong>
             Earn +15 Karma per exchange, plus +5 bonus for 5-star peer reviews!
           </div>
         </div>

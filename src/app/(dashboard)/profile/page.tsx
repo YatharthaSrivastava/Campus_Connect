@@ -89,17 +89,17 @@ export default function ProfilePage() {
     <div className="max-w-5xl mx-auto space-y-6">
       {/* ── Profile Header Card ─────────────────────────────────────── */}
       <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#0081a7]/10 to-[#00afb9]/10 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#005F73]/10 to-[#0A9396]/10 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#0081a7] to-[#00afb9] text-white flex items-center justify-center font-black text-3xl shadow-md">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#005F73] to-[#0A9396] text-white flex items-center justify-center font-black text-3xl shadow-md">
               {user?.fullName?.[0]?.toUpperCase() || 'P'}
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="text-2xl font-black text-[#0081a7]">{user?.fullName || 'Student'}</h1>
-                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#00afb9]/15 text-[#0081a7] border border-[#00afb9]/30">
+                <h1 className="text-2xl font-black text-[#005F73]">{user?.fullName || 'Student'}</h1>
+                <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#0A9396]/15 text-[#005F73] border border-[#0A9396]/30">
                   ✓ Verified
                 </span>
               </div>
@@ -117,15 +117,15 @@ export default function ProfilePage() {
 
           {/* Quick Actions & Karma Balance */}
           <div className="flex items-center gap-3">
-            <div className="bg-[#fdfcdc] border-2 border-[#00afb9] rounded-2xl px-5 py-3 text-center shadow-xs">
+            <div className="bg-[#faf8f5] border-2 border-[#0A9396] rounded-2xl px-5 py-3 text-center shadow-xs">
               <span className="text-[11px] font-bold text-gray-500 uppercase block">Reputation</span>
-              <span className="text-2xl font-black text-[#0081a7]">⚡ {user?.karmaScore ?? 10}</span>
-              <span className="text-[10px] text-[#00afb9] font-bold block">Karma Tokens</span>
+              <span className="text-2xl font-black text-[#005F73]">⚡ {user?.karmaScore ?? 10}</span>
+              <span className="text-[10px] text-[#0A9396] font-bold block">Karma Tokens</span>
             </div>
 
             <Link
               href="/setup-profile"
-              className="px-4 py-3 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-bold rounded-2xl transition shadow-xs flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-3 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-bold rounded-2xl transition shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
               <span>✏️</span> Edit Profile
             </Link>
@@ -146,7 +146,7 @@ export default function ProfilePage() {
           onClick={() => setActiveTab('overview')}
           className={`flex-1 py-2 text-xs font-bold rounded-xl transition cursor-pointer ${
             activeTab === 'overview'
-              ? 'bg-[#0081a7] text-white shadow-xs'
+              ? 'bg-[#005F73] text-white shadow-xs'
               : 'text-[#334155] hover:bg-gray-100'
           }`}
         >
@@ -156,7 +156,7 @@ export default function ProfilePage() {
           onClick={() => setActiveTab('history')}
           className={`flex-1 py-2 text-xs font-bold rounded-xl transition cursor-pointer ${
             activeTab === 'history'
-              ? 'bg-[#0081a7] text-white shadow-xs'
+              ? 'bg-[#005F73] text-white shadow-xs'
               : 'text-[#334155] hover:bg-gray-100'
           }`}
         >
@@ -166,7 +166,7 @@ export default function ProfilePage() {
           onClick={() => setActiveTab('reviews')}
           className={`flex-1 py-2 text-xs font-bold rounded-xl transition cursor-pointer ${
             activeTab === 'reviews'
-              ? 'bg-[#0081a7] text-white shadow-xs'
+              ? 'bg-[#005F73] text-white shadow-xs'
               : 'text-[#334155] hover:bg-gray-100'
           }`}
         >
@@ -180,10 +180,10 @@ export default function ProfilePage() {
           {/* Skills Offered Card */}
           <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-xs space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="font-extrabold text-[#0081a7] text-base flex items-center gap-2">
+              <h2 className="font-extrabold text-[#005F73] text-base flex items-center gap-2">
                 <span>💡</span> Skills You Can Offer / Teach
               </h2>
-              <Link href="/setup-profile" className="text-xs text-[#00afb9] font-bold hover:underline">
+              <Link href="/setup-profile" className="text-xs text-[#0A9396] font-bold hover:underline">
                 Manage
               </Link>
             </div>
@@ -192,7 +192,7 @@ export default function ProfilePage() {
                 {user.skillsOffered.map((s) => (
                   <span
                     key={s}
-                    className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#0081a7]/10 text-[#0081a7] border border-[#0081a7]/20"
+                    className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#005F73]/10 text-[#005F73] border border-[#005F73]/20"
                   >
                     {s}
                   </span>
@@ -201,7 +201,7 @@ export default function ProfilePage() {
             ) : (
               <p className="text-xs text-gray-400">
                 No skills added yet.{' '}
-                <Link href="/setup-profile" className="text-[#0081a7] font-bold hover:underline">
+                <Link href="/setup-profile" className="text-[#005F73] font-bold hover:underline">
                   Add skills you can help peers with.
                 </Link>
               </p>
@@ -211,10 +211,10 @@ export default function ProfilePage() {
           {/* Skills Needed Card */}
           <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-xs space-y-3">
             <div className="flex items-center justify-between">
-              <h2 className="font-extrabold text-[#00afb9] text-base flex items-center gap-2">
+              <h2 className="font-extrabold text-[#0A9396] text-base flex items-center gap-2">
                 <span>📚</span> Skills You Want to Learn
               </h2>
-              <Link href="/setup-profile" className="text-xs text-[#00afb9] font-bold hover:underline">
+              <Link href="/setup-profile" className="text-xs text-[#0A9396] font-bold hover:underline">
                 Manage
               </Link>
             </div>
@@ -223,7 +223,7 @@ export default function ProfilePage() {
                 {user.skillsNeeded.map((s) => (
                   <span
                     key={s}
-                    className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#00afb9]/15 text-[#0081a7] border border-[#00afb9]/25"
+                    className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#0A9396]/15 text-[#005F73] border border-[#0A9396]/25"
                   >
                     {s}
                   </span>
@@ -232,7 +232,7 @@ export default function ProfilePage() {
             ) : (
               <p className="text-xs text-gray-400">
                 No learning goals added yet.{' '}
-                <Link href="/setup-profile" className="text-[#00afb9] font-bold hover:underline">
+                <Link href="/setup-profile" className="text-[#0A9396] font-bold hover:underline">
                   Add subjects you need help with.
                 </Link>
               </p>
@@ -241,7 +241,7 @@ export default function ProfilePage() {
 
           {/* Badges Grid (Full width) */}
           <div className="md:col-span-2 bg-white rounded-3xl p-6 border border-gray-200 shadow-xs space-y-4">
-            <h2 className="font-extrabold text-[#0081a7] text-base flex items-center gap-2">
+            <h2 className="font-extrabold text-[#005F73] text-base flex items-center gap-2">
               <span>🏆</span> Campus Badges & Trust Accreditations
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -269,7 +269,7 @@ export default function ProfilePage() {
       {activeTab === 'history' && (
         <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-xs space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-            <h2 className="font-extrabold text-[#0081a7] text-base">
+            <h2 className="font-extrabold text-[#005F73] text-base">
               🤝 Verified Handshake History
             </h2>
             <span className="text-xs text-gray-400">Total: {transactions.length} transfers</span>
@@ -286,7 +286,7 @@ export default function ProfilePage() {
               </p>
               <Link
                 href="/marketplace"
-                className="inline-block mt-3 px-4 py-2 bg-[#0081a7] text-white text-xs font-bold rounded-xl"
+                className="inline-block mt-3 px-4 py-2 bg-[#005F73] text-white text-xs font-bold rounded-xl"
               >
                 Browse Marketplace →
               </Link>
@@ -310,7 +310,7 @@ export default function ProfilePage() {
                     </span>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs font-bold text-[#0081a7]">+15 Karma Earned</span>
+                    <span className="text-xs font-bold text-[#005F73]">+15 Karma Earned</span>
                   </div>
                 </div>
               ))}
@@ -324,7 +324,7 @@ export default function ProfilePage() {
         <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-xs space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-gray-100">
             <div>
-              <h2 className="font-extrabold text-[#0081a7] text-base">
+              <h2 className="font-extrabold text-[#005F73] text-base">
                 ⭐ Peer Feedback & Reviews
               </h2>
               <span className="text-xs text-gray-500">
@@ -347,7 +347,7 @@ export default function ProfilePage() {
               {reviews.map((r) => (
                 <div key={r._id} className="p-4 bg-gray-50 rounded-2xl border border-gray-200 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#0081a7]">{r.reviewerName}</span>
+                    <span className="text-xs font-bold text-[#005F73]">{r.reviewerName}</span>
                     <div className="flex text-amber-400 text-sm">
                       {Array.from({ length: r.stars }).map((_, i) => (
                         <span key={i}>★</span>

@@ -66,7 +66,7 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
   const progressPercent = Math.min(100, Math.round((currentKarma / nextTierPoints) * 100));
 
   const tierBadges: Record<string, { color: string; icon: string }> = {
-    'Bronze Scholar': { color: 'bg-amber-100 text-amber-800 border-amber-300', icon: '🥉' },
+    'Bronze Scholar': { color: 'bg-[#E9D8A6]/60 text-[#BB3E03] border-[#EE9B00]/40', icon: '🥉' },
     'Silver Mentor': { color: 'bg-slate-100 text-slate-800 border-slate-300', icon: '🥈' },
     'Gold Pioneer': { color: 'bg-yellow-100 text-yellow-800 border-yellow-300', icon: '🥇' },
     'Platinum Legend': { color: 'bg-purple-100 text-purple-800 border-purple-300', icon: '💎' },
@@ -76,30 +76,30 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-xs animate-in fade-in"
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border border-gray-100 flex flex-col max-h-[90vh]"
+        className="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border border-[#0A9396]/20 flex flex-col max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ── Modal Header ────────────────────────────────────────────── */}
-        <div className="bg-gradient-to-br from-[#0081a7] to-[#00afb9] p-6 text-white text-center relative flex-shrink-0">
+        {/* ── Modal Header with Ocean Sunset Gradient ───────────────────── */}
+        <div className="bg-gradient-to-br from-[#001219] via-[#005F73] to-[#0A9396] p-6 text-white text-center relative flex-shrink-0">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-sm font-bold transition cursor-pointer"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white text-sm font-bold transition cursor-pointer"
           >
             ✕
           </button>
 
           <span className="text-4xl block mb-1">⚡</span>
           <h2 className="text-2xl font-black tracking-tight">Campus Karma Hub</h2>
-          <p className="text-blue-100 text-xs mt-0.5">Your Academic Trust & Reputation Passport</p>
+          <p className="text-[#94D2BD] text-xs mt-0.5">Your Academic Trust & Reputation Passport</p>
 
           {/* Balance & Tier Row */}
           <div className="mt-4 flex items-center justify-center gap-3">
-            <div className="bg-white/15 backdrop-blur px-4 py-1.5 rounded-full border border-white/20 text-xs font-bold">
-              Balance: <span className="text-lg font-black text-[#fed9b7]">⚡ {currentKarma}</span>
+            <div className="bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 text-xs font-bold">
+              Balance: <span className="text-lg font-black text-[#EE9B00]">⚡ {currentKarma}</span>
             </div>
             <div className={`px-3 py-1.5 rounded-full text-xs font-bold border ${currentTierBadge.color}`}>
               {currentTierBadge.icon} {tier}
@@ -109,13 +109,13 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
           {/* Tier Progress Bar */}
           {nextTierPoints > currentKarma && (
             <div className="mt-4 max-w-xs mx-auto text-left">
-              <div className="flex justify-between text-[11px] text-blue-100 font-semibold mb-1">
+              <div className="flex justify-between text-[11px] text-[#E9D8A6] font-semibold mb-1">
                 <span>Next Tier: {nextTier}</span>
                 <span>{currentKarma} / {nextTierPoints}</span>
               </div>
-              <div className="w-full bg-black/20 rounded-full h-2 overflow-hidden">
+              <div className="w-full bg-black/30 rounded-full h-2 overflow-hidden">
                 <div
-                  className="bg-[#fed9b7] h-full rounded-full transition-all duration-500"
+                  className="bg-gradient-to-r from-[#EE9B00] to-[#CA6702] h-full rounded-full transition-all duration-500"
                   style={{ width: `${progressPercent}%` }}
                 />
               </div>
@@ -123,23 +123,23 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
           )}
 
           {/* Navigation Tabs */}
-          <div className="flex bg-white/15 rounded-xl p-1 mt-5 gap-1">
+          <div className="flex bg-black/25 rounded-2xl p-1 mt-5 gap-1 border border-white/10">
             <button
               onClick={() => setActiveTab('history')}
-              className={`flex-1 py-2 text-xs font-extrabold rounded-lg transition cursor-pointer ${
+              className={`flex-1 py-2 text-xs font-extrabold rounded-xl transition cursor-pointer ${
                 activeTab === 'history'
-                  ? 'bg-white text-[#0081a7] shadow-xs'
-                  : 'text-white hover:bg-white/10'
+                  ? 'bg-white text-[#005F73] shadow-xs'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
             >
               📜 Karma History
             </button>
             <button
               onClick={() => setActiveTab('earn')}
-              className={`flex-1 py-2 text-xs font-extrabold rounded-lg transition cursor-pointer ${
+              className={`flex-1 py-2 text-xs font-extrabold rounded-xl transition cursor-pointer ${
                 activeTab === 'earn'
-                  ? 'bg-white text-[#0081a7] shadow-xs'
-                  : 'text-white hover:bg-white/10'
+                  ? 'bg-white text-[#005F73] shadow-xs'
+                  : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
             >
               🚀 How to Earn More
@@ -155,7 +155,7 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs text-gray-500 pb-2 border-b">
                 <span>Recorded Activity Log</span>
-                <span className="font-bold text-[#0081a7]">Lifetime Points: +{totalEarned}</span>
+                <span className="font-extrabold text-[#005F73]">Lifetime Points: +{totalEarned}</span>
               </div>
 
               {history.length === 0 ? (
@@ -179,7 +179,7 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
                         <div className="flex items-start gap-2.5">
                           <span className="text-xl mt-0.5">{icon}</span>
                           <div>
-                            <h4 className="text-xs font-bold text-[#334155]">{item.title}</h4>
+                            <h4 className="text-xs font-bold text-[#001219]">{item.title}</h4>
                             <p className="text-[11px] text-gray-500 mt-0.5 leading-relaxed">
                               {item.description}
                             </p>
@@ -191,7 +191,7 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
                         </div>
 
                         <div className="flex-shrink-0 text-right">
-                          <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs">
+                          <span className="px-2.5 py-1 rounded-full bg-[#94D2BD]/30 text-[#005F73] font-extrabold text-xs">
                             +{item.amount} Karma
                           </span>
                         </div>
@@ -211,16 +211,16 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
                 {earnGuide.map((rule) => (
                   <div
                     key={rule.action}
-                    className="p-3.5 bg-gray-50 rounded-2xl border border-gray-200 flex items-start justify-between gap-3 hover:border-[#00afb9] transition"
+                    className="p-3.5 bg-gray-50/80 rounded-2xl border border-gray-200 flex items-start justify-between gap-3 hover:border-[#0A9396] transition"
                   >
                     <div className="flex items-start gap-3">
                       <span className="text-2xl mt-0.5">{rule.icon}</span>
                       <div>
-                        <h4 className="text-xs font-extrabold text-[#0081a7]">{rule.action}</h4>
-                        <p className="text-[11px] text-[#334155] mt-0.5 leading-relaxed">{rule.desc}</p>
+                        <h4 className="text-xs font-extrabold text-[#005F73]">{rule.action}</h4>
+                        <p className="text-[11px] text-gray-600 mt-0.5 leading-relaxed">{rule.desc}</p>
                       </div>
                     </div>
-                    <span className="flex-shrink-0 px-2.5 py-1 rounded-full bg-[#fed9b7] text-[#334155] font-black text-xs whitespace-nowrap">
+                    <span className="flex-shrink-0 px-2.5 py-1 rounded-full bg-[#E9D8A6] text-[#001219] font-black text-xs whitespace-nowrap">
                       {rule.points}
                     </span>
                   </div>
@@ -232,14 +232,14 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
                 <Link
                   href="/marketplace"
                   onClick={onClose}
-                  className="py-2.5 px-3 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-bold rounded-xl text-center transition"
+                  className="py-2.5 px-3 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-bold rounded-xl text-center transition shadow-xs"
                 >
                   📦 List Gear (+5)
                 </Link>
                 <Link
                   href="/skills"
                   onClick={onClose}
-                  className="py-2.5 px-3 bg-[#fed9b7] hover:bg-[#fed9b7]/80 text-[#334155] text-xs font-bold rounded-xl text-center transition"
+                  className="py-2.5 px-3 bg-[#EE9B00] hover:bg-[#CA6702] text-[#001219] hover:text-white text-xs font-bold rounded-xl text-center transition shadow-xs"
                 >
                   🧑‍🏫 Mentor Peers (+10)
                 </Link>
@@ -253,7 +253,7 @@ export default function KarmaModal({ isOpen, onClose }: KarmaModalProps) {
           <span>🔒 Cryptographically audited Karma ledger</span>
           <button
             onClick={onClose}
-            className="text-xs font-bold text-[#0081a7] hover:underline cursor-pointer"
+            className="text-xs font-bold text-[#005F73] hover:underline cursor-pointer"
           >
             Close
           </button>

@@ -46,13 +46,13 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
     setLoginError('');
     setLoginLoading(true);
     try {
-      await login(loginEmail);
+      await login(loginEmail.trim());
       onClose();
       router.push('/dashboard');
     } catch (err: unknown) {
       const msg =
         (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
-        'Login failed. Please check your email and try again.';
+        'Login failed. Please enter a valid email address.';
       setLoginError(msg);
     } finally {
       setLoginLoading(false);
@@ -75,20 +75,14 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
 
     setSignupLoading(true);
     try {
-      await register(signupEmail, signupName, finalCollegeName);
+      await register(signupEmail.trim(), signupName.trim(), finalCollegeName);
       onClose();
       router.push('/setup-profile');
     } catch (err: unknown) {
-      const status = (err as { response?: { status?: number; data?: { message?: string } } })
-        ?.response?.status;
-      if (status === 409) {
-        setSignupError('An account with this email already exists. Please log in instead.');
-      } else {
-        const msg =
-          (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
-          'Registration failed. Please try again.';
-        setSignupError(msg);
-      }
+      const msg =
+        (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
+        'Registration failed. Please try again.';
+      setSignupError(msg);
     } finally {
       setSignupLoading(false);
     }
@@ -98,37 +92,37 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
     <div
       ref={overlayRef}
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.55)', backdropFilter: 'blur(4px)' }}
+      style={{ backgroundColor: 'rgba(0, 18, 25, 0.75)', backdropFilter: 'blur(6px)' }}
       onClick={(e) => { if (e.target === overlayRef.current) onClose(); }}
     >
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200 max-h-[92vh] flex flex-col">
-        {/* Modal Header with Brand */}
-        <div className="bg-gradient-to-br from-[#0081a7] to-[#00afb9] px-6 pt-6 pb-6 text-white text-center relative flex-shrink-0">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200 max-h-[92vh] flex flex-col border border-[#0A9396]/20">
+        {/* Modal Header with Ocean Sunset Gradient */}
+        <div className="bg-gradient-to-br from-[#001219] via-[#005F73] to-[#0A9396] px-6 pt-6 pb-6 text-white text-center relative flex-shrink-0">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white text-sm font-bold transition cursor-pointer"
+            className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white text-sm font-bold transition cursor-pointer"
             aria-label="Close"
           >
             ✕
           </button>
           <div className="text-3xl mb-1">🎓</div>
           <h2 className="text-xl font-extrabold tracking-tight">CampusConnect</h2>
-          <p className="text-blue-100 text-xs mt-0.5">Verified Peer Exchange for All Colleges</p>
+          <p className="text-[#94D2BD] text-xs mt-0.5">Verified Peer Exchange for All Colleges</p>
 
           {/* Tab Switcher */}
-          <div className="flex bg-white/15 rounded-xl p-1 mt-4 gap-1">
+          <div className="flex bg-black/25 rounded-2xl p-1 mt-4 gap-1 border border-white/10">
             <button
               onClick={() => { setTab('login'); setLoginError(''); setSignupError(''); }}
-              className={`flex-1 py-2 text-sm font-extrabold rounded-lg transition cursor-pointer ${
-                tab === 'login' ? 'bg-white text-[#0081a7] shadow-sm' : 'text-white hover:bg-white/10'
+              className={`flex-1 py-2 text-sm font-extrabold rounded-xl transition cursor-pointer ${
+                tab === 'login' ? 'bg-white text-[#005F73] shadow-sm' : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
             >
               Log In
             </button>
             <button
               onClick={() => { setTab('signup'); setLoginError(''); setSignupError(''); }}
-              className={`flex-1 py-2 text-sm font-extrabold rounded-lg transition cursor-pointer ${
-                tab === 'signup' ? 'bg-white text-[#0081a7] shadow-sm' : 'text-white hover:bg-white/10'
+              className={`flex-1 py-2 text-sm font-extrabold rounded-xl transition cursor-pointer ${
+                tab === 'signup' ? 'bg-white text-[#005F73] shadow-sm' : 'text-white/80 hover:text-white hover:bg-white/10'
               }`}
             >
               Sign Up
@@ -141,7 +135,7 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
           {tab === 'login' ? (
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-[#334155] mb-1.5">
+                <label className="block text-xs font-bold text-[#001219] mb-1.5">
                   Email Address
                 </label>
                 <input
@@ -150,16 +144,16 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
                   autoFocus
                   value={loginEmail}
                   onChange={(e) => { setLoginEmail(e.target.value); setLoginError(''); }}
-                  placeholder="you@example.com"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                  placeholder="you@gmail.com, student@college.in..."
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                 />
-                <p className="text-[11px] text-[#00afb9] mt-1 font-medium">
-                  ✓ Use your student or personal email
+                <p className="text-[11px] text-[#0A9396] mt-1 font-semibold flex items-center gap-1">
+                  <span>✓</span> Use any personal email (Gmail, Yahoo, Outlook) or college email
                 </p>
               </div>
 
               {loginError && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-600 font-medium">
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-[#BB3E03] font-semibold">
                   ⚠️ {loginError}
                 </div>
               )}
@@ -167,7 +161,7 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
               <button
                 type="submit"
                 disabled={loginLoading || !loginEmail}
-                className="w-full py-3 bg-[#0081a7] hover:bg-[#00afb9] text-white font-extrabold rounded-xl transition shadow-sm disabled:opacity-50 cursor-pointer"
+                className="w-full py-3 bg-[#005F73] hover:bg-[#0A9396] text-white font-extrabold rounded-xl transition shadow-md disabled:opacity-50 cursor-pointer"
               >
                 {loginLoading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -184,7 +178,7 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
                 <button
                   type="button"
                   onClick={() => setTab('signup')}
-                  className="text-[#0081a7] font-bold hover:underline cursor-pointer"
+                  className="text-[#005F73] font-bold hover:underline cursor-pointer"
                 >
                   Sign up free
                 </button>
@@ -192,16 +186,16 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
             </form>
           ) : (
             <form onSubmit={handleSignup} className="space-y-4">
-              {/* Step 1: College Selection FIRST! */}
-              <div className="p-3.5 bg-[#fdfcdc] border border-[#00afb9]/30 rounded-2xl space-y-2">
-                <label className="block text-xs font-black text-[#0081a7] uppercase tracking-wider">
+              {/* Step 1: College Selection FIRST */}
+              <div className="p-3.5 bg-[#E9D8A6]/25 border border-[#0A9396]/30 rounded-2xl space-y-2">
+                <label className="block text-xs font-black text-[#005F73] uppercase tracking-wider">
                   🏫 1. Select Your College / University First *
                 </label>
                 <select
                   value={signupCollege}
                   onChange={(e) => { setSignupCollege(e.target.value); setSignupError(''); }}
                   required
-                  className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-xs font-semibold text-[#334155] outline-none focus:border-[#0081a7]"
+                  className="w-full px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-xs font-semibold text-[#001219] outline-none focus:border-[#0A9396]"
                 >
                   {COLLEGES.map((c) => (
                     <option key={c.id} value={c.name}>
@@ -218,14 +212,14 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
                     placeholder="Enter your College / University name..."
                     value={customCollege}
                     onChange={(e) => { setCustomCollege(e.target.value); setSignupError(''); }}
-                    className="w-full px-3 py-2 bg-white border border-[#00afb9] rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#00afb9]/30"
+                    className="w-full px-3 py-2 bg-white border border-[#0A9396] rounded-xl text-xs outline-none focus:ring-2 focus:ring-[#0A9396]/30 mt-2"
                   />
                 )}
               </div>
 
               {/* Step 2: Student Details */}
               <div>
-                <label className="block text-xs font-bold text-[#334155] mb-1.5">
+                <label className="block text-xs font-bold text-[#001219] mb-1.5">
                   Full Name *
                 </label>
                 <input
@@ -235,12 +229,12 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
                   onChange={(e) => { setSignupName(e.target.value); setSignupError(''); }}
                   placeholder="Your full name"
                   minLength={2}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#334155] mb-1.5">
+                <label className="block text-xs font-bold text-[#001219] mb-1.5">
                   Email Address *
                 </label>
                 <input
@@ -248,16 +242,16 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
                   required
                   value={signupEmail}
                   onChange={(e) => { setSignupEmail(e.target.value); setSignupError(''); }}
-                  placeholder="you@example.com"
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0081a7] focus:ring-2 focus:ring-[#0081a7]/20 transition bg-gray-50"
+                  placeholder="you@gmail.com, student@domain.com..."
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#0A9396] focus:ring-2 focus:ring-[#0A9396]/20 transition bg-gray-50/70"
                 />
-                <p className="text-[11px] text-[#00afb9] mt-1 font-medium">
-                  ✓ Any college or personal email accepted
+                <p className="text-[11px] text-[#0A9396] mt-1 font-semibold flex items-center gap-1">
+                  <span>✓</span> Any personal or institutional email accepted
                 </p>
               </div>
 
               {signupError && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-600 font-medium">
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-[#BB3E03] font-semibold">
                   ⚠️ {signupError}
                 </div>
               )}
@@ -265,7 +259,7 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
               <button
                 type="submit"
                 disabled={signupLoading || !signupEmail || !signupName}
-                className="w-full py-3 bg-[#0081a7] hover:bg-[#00afb9] text-white font-extrabold rounded-xl transition shadow-sm disabled:opacity-50 cursor-pointer"
+                className="w-full py-3 bg-[#005F73] hover:bg-[#0A9396] text-white font-extrabold rounded-xl transition shadow-md disabled:opacity-50 cursor-pointer"
               >
                 {signupLoading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -282,7 +276,7 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
                 <button
                   type="button"
                   onClick={() => setTab('login')}
-                  className="text-[#0081a7] font-bold hover:underline cursor-pointer"
+                  className="text-[#005F73] font-bold hover:underline cursor-pointer"
                 >
                   Log in
                 </button>

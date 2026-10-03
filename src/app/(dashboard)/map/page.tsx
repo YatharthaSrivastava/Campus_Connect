@@ -422,15 +422,15 @@ export default function CampusMapPage() {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'handshake':
-        return <ShieldCheck className="w-4 h-4 text-[#f07167]" />;
+        return <ShieldCheck className="w-4 h-4 text-[#BB3E03]" />;
       case 'study':
-        return <BookOpen className="w-4 h-4 text-[#00afb9]" />;
+        return <BookOpen className="w-4 h-4 text-[#0A9396]" />;
       case 'lab':
         return <Laptop className="w-4 h-4 text-indigo-600" />;
       case 'cafe':
         return <Coffee className="w-4 h-4 text-amber-600" />;
       default:
-        return <MapPin className="w-4 h-4 text-[#0081a7]" />;
+        return <MapPin className="w-4 h-4 text-[#005F73]" />;
     }
   };
 
@@ -440,12 +440,12 @@ export default function CampusMapPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-gray-200">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-[#fdfcdc] text-[#0081a7] border border-[#00afb9]/30">
+            <span className="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-[#faf8f5] text-[#005F73] border border-[#0A9396]/30">
               Multi-Campus Spatial Network
             </span>
             <span className="text-xs text-gray-500 font-medium">GeoJSON 2dsphere Ready</span>
           </div>
-          <h1 className="text-3xl font-extrabold text-[#0081a7] tracking-tight">
+          <h1 className="text-3xl font-extrabold text-[#005F73] tracking-tight">
             Interactive Campus Map & Hotspots
           </h1>
           <p className="text-xs sm:text-sm text-[#334155] font-medium">
@@ -459,7 +459,7 @@ export default function CampusMapPage() {
           <select
             value={selectedCampusId}
             onChange={(e) => setSelectedCampusId(e.target.value)}
-            className="px-3.5 py-2 bg-white border-2 border-[#0081a7]/40 rounded-xl text-xs font-bold text-[#0081a7] shadow-xs outline-none focus:ring-2 focus:ring-[#00afb9]/30 cursor-pointer"
+            className="px-3.5 py-2 bg-white border-2 border-[#005F73]/40 rounded-xl text-xs font-bold text-[#005F73] shadow-xs outline-none focus:ring-2 focus:ring-[#0A9396]/30 cursor-pointer"
           >
             <option value="psit_kanpur">PSIT Kanpur (Main Campus)</option>
             <option value="iit_kanpur">IIT Kanpur (Academic Concourse)</option>
@@ -477,8 +477,8 @@ export default function CampusMapPage() {
             onClick={() => setSelectedFilter('all')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap ${
               selectedFilter === 'all'
-                ? 'bg-[#0081a7] text-white shadow-xs'
-                : 'bg-white text-[#334155] border border-gray-200 hover:border-[#00afb9]'
+                ? 'bg-[#005F73] text-white shadow-xs'
+                : 'bg-white text-[#334155] border border-gray-200 hover:border-[#0A9396]'
             }`}
           >
             All Hotspots ({activeCampus.spots.length})
@@ -487,8 +487,8 @@ export default function CampusMapPage() {
             onClick={() => setSelectedFilter('handshake')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1 ${
               selectedFilter === 'handshake'
-                ? 'bg-[#f07167] text-white shadow-xs'
-                : 'bg-white text-[#334155] border border-gray-200 hover:border-[#f07167]'
+                ? 'bg-[#BB3E03] text-white shadow-xs'
+                : 'bg-white text-[#334155] border border-gray-200 hover:border-[#BB3E03]'
             }`}
           >
             <ShieldCheck className="w-3.5 h-3.5" />
@@ -498,8 +498,8 @@ export default function CampusMapPage() {
             onClick={() => setSelectedFilter('study')}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer whitespace-nowrap flex items-center gap-1 ${
               selectedFilter === 'study'
-                ? 'bg-[#00afb9] text-white shadow-xs'
-                : 'bg-white text-[#334155] border border-gray-200 hover:border-[#00afb9]'
+                ? 'bg-[#0A9396] text-white shadow-xs'
+                : 'bg-white text-[#334155] border border-gray-200 hover:border-[#0A9396]'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -526,7 +526,7 @@ export default function CampusMapPage() {
             placeholder="Search hotspots or amenities..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 bg-white border border-gray-200 rounded-xl text-xs outline-none focus:border-[#0081a7] shadow-xs"
+            className="w-full pl-9 pr-3 py-2 bg-white border border-gray-200 rounded-xl text-xs outline-none focus:border-[#005F73] shadow-xs"
           />
         </div>
       </div>
@@ -534,7 +534,7 @@ export default function CampusMapPage() {
       {/* Main Interactive Spatial Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Visual Campus Spatial Canvas */}
-        <div className="lg:col-span-2 bg-gradient-to-br from-slate-900 via-indigo-950 to-[#0081a7] rounded-3xl p-6 text-white min-h-[460px] flex flex-col justify-between relative overflow-hidden shadow-lg border border-white/10">
+        <div className="lg:col-span-2 bg-gradient-to-br from-slate-900 via-indigo-950 to-[#005F73] rounded-3xl p-6 text-white min-h-[460px] flex flex-col justify-between relative overflow-hidden shadow-lg border border-white/10">
           {/* Spatial Blueprint Grid Background */}
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:24px_24px]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -571,11 +571,11 @@ export default function CampusMapPage() {
                   onClick={() => setActiveSpot(spot)}
                   className={`p-4 rounded-2xl cursor-pointer transition-all duration-200 transform hover:scale-[1.03] backdrop-blur-md border ${
                     isSelected
-                      ? 'bg-white text-gray-900 shadow-2xl border-white ring-4 ring-[#fed9b7]'
+                      ? 'bg-white text-gray-900 shadow-2xl border-white ring-4 ring-[#E9D8A6]'
                       : isHandshake
-                      ? 'bg-[#f07167]/25 hover:bg-[#f07167]/35 text-white border-[#f07167]/40'
+                      ? 'bg-[#BB3E03]/25 hover:bg-[#BB3E03]/35 text-white border-[#BB3E03]/40'
                       : isStudy
-                      ? 'bg-[#00afb9]/25 hover:bg-[#00afb9]/35 text-white border-[#00afb9]/40'
+                      ? 'bg-[#0A9396]/25 hover:bg-[#0A9396]/35 text-white border-[#0A9396]/40'
                       : 'bg-indigo-900/40 hover:bg-indigo-900/50 text-white border-indigo-400/30'
                   }`}
                 >
@@ -586,7 +586,7 @@ export default function CampusMapPage() {
                     <span
                       className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md ${
                         isSelected
-                          ? 'bg-[#0081a7] text-white'
+                          ? 'bg-[#005F73] text-white'
                           : 'bg-white/20 text-white'
                       }`}
                     >
@@ -625,10 +625,10 @@ export default function CampusMapPage() {
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 text-xs pt-3 border-t border-white/15">
             <div className="flex items-center gap-4 text-[11px] font-medium">
               <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#f07167]" /> Safe Handshake Zones
+                <span className="w-2.5 h-2.5 rounded-full bg-[#BB3E03]" /> Safe Handshake Zones
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#00afb9]" /> Quiet Study Pods
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0A9396]" /> Quiet Study Pods
               </span>
               <span className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-indigo-400" /> Tech Labs
@@ -649,9 +649,9 @@ export default function CampusMapPage() {
                 <span
                   className={`text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 ${
                     activeSpot.category === 'handshake'
-                      ? 'bg-[#f07167]/15 text-[#f07167]'
+                      ? 'bg-[#BB3E03]/15 text-[#BB3E03]'
                       : activeSpot.category === 'study'
-                      ? 'bg-[#00afb9]/15 text-[#0081a7]'
+                      ? 'bg-[#0A9396]/15 text-[#005F73]'
                       : 'bg-indigo-50 text-indigo-700'
                   }`}
                 >
@@ -672,7 +672,7 @@ export default function CampusMapPage() {
               <div>
                 <h3 className="text-xl font-bold text-gray-900 leading-snug">{activeSpot.name}</h3>
                 <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-[#f07167] shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-[#BB3E03] shrink-0" />
                   <span>{activeSpot.locationName}</span>
                 </p>
               </div>
@@ -683,10 +683,10 @@ export default function CampusMapPage() {
 
               {/* Security & Surveillance Metrics */}
               <div className="space-y-2 pt-1 text-xs">
-                <span className="font-extrabold text-[#0081a7] text-xs block">
+                <span className="font-extrabold text-[#005F73] text-xs block">
                   Security & Surveillance Level
                 </span>
-                <div className="p-3 rounded-xl bg-[#fdfcdc] border border-[#00afb9]/20 space-y-2">
+                <div className="p-3 rounded-xl bg-[#faf8f5] border border-[#0A9396]/20 space-y-2">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600 font-medium">Protection:</span>
                     <span className="font-bold text-gray-900">{activeSpot.securityRating}</span>
@@ -695,7 +695,7 @@ export default function CampusMapPage() {
                     {activeSpot.securityBadges.map((badge, idx) => (
                       <span
                         key={idx}
-                        className="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-[#0081a7] border border-[#00afb9]/30"
+                        className="text-[10px] font-bold px-2 py-0.5 rounded bg-white text-[#005F73] border border-[#0A9396]/30"
                       >
                         ✓ {badge}
                       </span>
@@ -722,10 +722,10 @@ export default function CampusMapPage() {
               {/* Peer Activity Gauge */}
               <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100 text-xs">
                 <span className="text-gray-500 font-medium flex items-center gap-1.5">
-                  <Users className="w-3.5 h-3.5 text-[#0081a7]" />
+                  <Users className="w-3.5 h-3.5 text-[#005F73]" />
                   <span>Current Activity:</span>
                 </span>
-                <span className="font-extrabold text-[#0081a7]">
+                <span className="font-extrabold text-[#005F73]">
                   {activeSpot.activeSessions} active student group
                   {activeSpot.activeSessions !== 1 ? 's' : ''}
                 </span>
@@ -737,7 +737,7 @@ export default function CampusMapPage() {
                   <button
                     type="button"
                     onClick={() => handleMeetHere(activeSpot)}
-                    className="w-full py-3 px-4 bg-[#f07167] hover:bg-[#f07167]/90 text-white text-xs font-extrabold rounded-xl transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3 px-4 bg-[#BB3E03] hover:bg-[#BB3E03]/90 text-white text-xs font-extrabold rounded-xl transition shadow-xs flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ShieldCheck className="w-4 h-4" />
                     <span>Designate This Spot for Handshake →</span>
@@ -745,7 +745,7 @@ export default function CampusMapPage() {
                 ) : (
                   <Link
                     href="/study-groups"
-                    className="w-full py-3 px-4 bg-[#0081a7] hover:bg-[#00afb9] text-white text-xs font-extrabold rounded-xl transition shadow-xs flex items-center justify-center gap-2 text-center"
+                    className="w-full py-3 px-4 bg-[#005F73] hover:bg-[#0A9396] text-white text-xs font-extrabold rounded-xl transition shadow-xs flex items-center justify-center gap-2 text-center"
                   >
                     <BookOpen className="w-4 h-4" />
                     <span>Organize Study Group Here →</span>
@@ -780,7 +780,7 @@ export default function CampusMapPage() {
           <div className="bg-white rounded-3xl max-w-md w-full p-6 space-y-5 border border-gray-200 shadow-2xl relative animate-in zoom-in-95">
             <div className="flex items-center justify-between pb-3 border-b border-gray-100">
               <div className="flex items-center gap-2">
-                <Navigation className="w-5 h-5 text-[#0081a7]" />
+                <Navigation className="w-5 h-5 text-[#005F73]" />
                 <h3 className="font-extrabold text-gray-900 text-sm">Campus Navigation Route</h3>
               </div>
               <button
@@ -793,7 +793,7 @@ export default function CampusMapPage() {
             </div>
 
             <div>
-              <span className="text-[11px] font-bold text-[#00afb9] uppercase tracking-wider block">
+              <span className="text-[11px] font-bold text-[#0A9396] uppercase tracking-wider block">
                 Destination Hotspot
               </span>
               <h4 className="font-extrabold text-gray-900 text-base">{activeSpot.name}</h4>
@@ -807,7 +807,7 @@ export default function CampusMapPage() {
               <div className="space-y-2.5">
                 {activeSpot.walkingGuide.map((step, idx) => (
                   <div key={idx} className="flex items-start gap-3 text-xs text-[#334155]">
-                    <span className="w-5 h-5 rounded-full bg-[#0081a7] text-white font-extrabold text-[11px] flex items-center justify-center shrink-0">
+                    <span className="w-5 h-5 rounded-full bg-[#005F73] text-white font-extrabold text-[11px] flex items-center justify-center shrink-0">
                       {idx + 1}
                     </span>
                     <p className="leading-snug pt-0.5">{step}</p>
@@ -816,15 +816,15 @@ export default function CampusMapPage() {
               </div>
             </div>
 
-            <div className="p-3 bg-[#fdfcdc] rounded-xl border border-[#00afb9]/30 text-xs text-gray-600">
-              <span className="font-bold text-[#0081a7] block">Campus Safety Tip:</span>
+            <div className="p-3 bg-[#faf8f5] rounded-xl border border-[#0A9396]/30 text-xs text-gray-600">
+              <span className="font-bold text-[#005F73] block">Campus Safety Tip:</span>
               Always inform a peer or keep your CampusConnect app open during exchanges after 7:00 PM.
             </div>
 
             <button
               type="button"
               onClick={() => setShowDirectionsModal(false)}
-              className="w-full py-2.5 bg-[#0081a7] text-white text-xs font-bold rounded-xl hover:bg-[#00afb9] transition cursor-pointer"
+              className="w-full py-2.5 bg-[#005F73] text-white text-xs font-bold rounded-xl hover:bg-[#0A9396] transition cursor-pointer"
             >
               Got It, Close Route
             </button>
