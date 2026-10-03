@@ -43,7 +43,15 @@ export default function SetupProfilePage() {
   // Pre-fill form if user data is loaded
   useEffect(() => {
     if (user) {
-      if (user.collegeName && !collegeName) setCollegeName(user.collegeName);
+      if (user.collegeName) {
+        const found = COLLEGES.some((c) => c.name === user.collegeName);
+        if (found) {
+          setCollegeName(user.collegeName);
+        } else {
+          setCollegeName('other');
+          setCustomCollege(user.collegeName);
+        }
+      }
       if (user.department && !department) setDepartment(user.department);
       if (user.academicYear && !academicYear) setAcademicYear(String(user.academicYear));
       if (user.collegeId && !collegeId) setCollegeId(user.collegeId);

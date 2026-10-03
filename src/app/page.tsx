@@ -63,10 +63,12 @@ export default function HomePage() {
   const [modalTab, setModalTab] = useState<'login' | 'signup'>('login');
 
   useEffect(() => {
-    if (!isLoading && isAuthenticated) {
+    // Only redirect to dashboard if authenticated on initial page load,
+    // and not when user is actively registering or logging in via the floating modal
+    if (!isLoading && isAuthenticated && !modalOpen) {
       router.push('/dashboard');
     }
-  }, [isAuthenticated, isLoading, router]);
+  }, [isAuthenticated, isLoading, router, modalOpen]);
 
   const openModal = (tab: 'login' | 'signup') => {
     setModalTab(tab);

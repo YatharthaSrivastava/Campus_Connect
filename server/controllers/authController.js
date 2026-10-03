@@ -107,6 +107,27 @@ const getSession = async (req, res) => {
   }
 };
 
+const sanitizeUser = (u) => {
+  const idStr = (u._id || u.id || '').toString();
+  return {
+    id: idStr,
+    _id: idStr,
+    email: u.email,
+    fullName: u.fullName,
+    collegeName: u.collegeName || 'Pranveer Singh Institute of Technology (PSIT), Kanpur',
+    department: u.department || 'Computer Science',
+    collegeId: u.collegeId || '',
+    academicYear: u.academicYear || 1,
+    section: u.section || '',
+    bio: u.bio || '',
+    karmaScore: u.karmaScore || 10,
+    isVerified: u.isVerified !== undefined ? u.isVerified : true,
+    isProfileComplete: Boolean(u.isProfileComplete),
+    skillsOffered: u.skillsOffered || [],
+    skillsNeeded: u.skillsNeeded || [],
+  };
+};
+
 /**
  * POST /api/v1/auth/register
  * Allows any valid normal or personal email address (Gmail, Yahoo, Outlook, student email, etc.).
@@ -132,7 +153,8 @@ const register = async (req, res) => {
       if (department && department.trim()) updates.department = department.trim();
 
       if (Object.keys(updates).length > 0) {
-        user = await StoreService.updateUser(user._id, updates);
+        const updated = await StoreService.updateUser(user._id, updates);
+        if (updated) user = updated;
       }
     } else {
       // Create new user
@@ -144,16 +166,18 @@ const register = async (req, res) => {
         department: (department && department.trim()) || 'Computer Science',
         karmaScore: 10,
         isVerified: true,
+        isProfileComplete: false,
       });
     }
 
+    const safeUser = sanitizeUser(user);
     const token = jwt.sign(
-      { uid: user.firebaseUid, email: user.email, id: user._id },
+      { uid: safeUser.firebaseUid || user.firebaseUid, email: safeUser.email, id: safeUser.id },
       JWT_SECRET,
       { expiresIn: '7d' }
     );
 
-    return sendSuccess(res, { token, mockToken: token, user }, 'Account authenticated successfully', 200);
+    return sendSuccess(res, { token, mockToken: token, user: safeUser }, 'Account authenticated successfully', 200);
   } catch (err) {
     console.error('Register error:', err);
     return sendError(res, 'Registration failed. Please try again.', 500);
@@ -186,16 +210,18 @@ const login = async (req, res) => {
         collegeName: 'Pranveer Singh Institute of Technology (PSIT), Kanpur',
         karmaScore: 10,
         isVerified: true,
+        isProfileComplete: false,
       });
     }
 
+    const safeUser = sanitizeUser(user);
     const token = jwt.sign(
-      { uid: user.firebaseUid, email: user.email, id: user._id },
+      { uid: safeUser.firebaseUid || user.firebaseUid, email: safeUser.email, id: safeUser.id },
       JWT_SECRET,
       { expiresIn: '7d' }
     );
 
-    return sendSuccess(res, { token, mockToken: token, user }, 'Logged in successfully');
+    return sendSuccess(res, { token, mockToken: token, user: safeUser }, 'Logged in successfully');
   } catch (err) {
     console.error('Login error:', err);
     return sendError(res, 'Login failed', 500);
@@ -207,4 +233,5 @@ module.exports = {
   getSession,
   register,
   login,
+  sanitizeUser,
 };

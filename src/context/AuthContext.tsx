@@ -26,6 +26,17 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const MOCK_AUTH = process.env.NEXT_PUBLIC_MOCK_AUTH === 'true';
 
+// Helper to normalize user object across DB and API representations
+function normalizeUser(raw: any): User | null {
+  if (!raw) return null;
+  const idStr = (raw.id || raw._id || '').toString();
+  return {
+    ...raw,
+    id: idStr,
+    _id: idStr,
+  };
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
@@ -38,7 +49,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (storedToken && storedUser) {
       try {
         setToken(storedToken);
-        setUser(JSON.parse(storedUser));
+        const parsed = JSON.parse(storedUser);
+        setUser(normalizeUser(parsed));
       } catch {
         localStorage.removeItem('cc_token');
         localStorage.removeItem('cc_user');
@@ -53,8 +65,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const res = await authAPI.getMe();
       const updatedUser = res.data?.data || res.data;
       if (updatedUser) {
-        setUser(updatedUser);
-        localStorage.setItem('cc_user', JSON.stringify(updatedUser));
+        const safeUser = normalizeUser(updatedUser);
+        setUser(safeUser);
+        localStorage.setItem('cc_user', JSON.stringify(safeUser));
       }
     } catch (err) {
       console.warn('refreshUser error:', err);
@@ -80,8 +93,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     if (newUser) {
-      setUser(newUser);
-      localStorage.setItem('cc_user', JSON.stringify(newUser));
+      const safeUser = normalizeUser(newUser);
+      setUser(safeUser);
+      localStorage.setItem('cc_user', JSON.stringify(safeUser));
     }
   }, []);
 
@@ -102,8 +116,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     if (loggedInUser) {
-      setUser(loggedInUser);
-      localStorage.setItem('cc_user', JSON.stringify(loggedInUser));
+      const safeUser = normalizeUser(loggedInUser);
+      setUser(safeUser);
+      localStorage.setItem('cc_user', JSON.stringify(safeUser));
     }
   }, []);
 

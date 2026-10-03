@@ -14,6 +14,8 @@ const authenticate = async (req, res, next) => {
 
     const token = authHeader.split(' ')[1];
     let userId = null;
+    let userEmail = null;
+    let userUid = null;
 
     try {
       const decoded = jwt.verify(token, JWT_SECRET);
