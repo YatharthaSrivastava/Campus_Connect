@@ -96,6 +96,19 @@ const getLeaderboard = async (req, res) => {
 };
 
 /**
+ * GET /api/v1/users/transactions/my
+ */
+const getMyTransactions = async (req, res) => {
+  try {
+    const transactions = await StoreService.getUserTransactions(req.user._id);
+    return sendSuccess(res, transactions, 'Transactions fetched successfully');
+  } catch (err) {
+    console.error('getMyTransactions error:', err);
+    return sendError(res, 'Failed to fetch user transactions', 500);
+  }
+};
+
+/**
  * GET /api/v1/users/karma/history
  */
 const getMyKarmaHistory = async (req, res) => {
