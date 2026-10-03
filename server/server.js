@@ -24,6 +24,9 @@ const ratingRoutes = require('./routes/ratingRoutes');
 const app = express();
 const server = http.createServer(app);
 
+// Enable trust proxy for Next.js / reverse proxy rewrites
+app.set('trust proxy', 1);
+
 // Connect to MongoDB (non-blocking, falls back smoothly to in-memory store)
 connectDB();
 

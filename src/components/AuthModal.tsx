@@ -76,8 +76,9 @@ export default function AuthModal({ defaultTab, onClose }: AuthModalProps) {
     setSignupLoading(true);
     try {
       await register(signupEmail.trim(), signupName.trim(), finalCollegeName);
-      onClose();
+      // Push BEFORE closing modal to avoid triggering the page-level dashboard redirect
       router.push('/setup-profile');
+      onClose();
     } catch (err: unknown) {
       const msg =
         (err as { response?: { data?: { message?: string } } })?.response?.data?.message ||
