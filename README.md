@@ -9,6 +9,8 @@
 
 **CampusConnect** is a hyper-local, zero-trust peer-to-peer academic ecosystem engineered for Indian college campuses. It unifies peer mentoring, course syllabus skill matching, academic gear exchange (books, drafters, lab coats, components), and designated campus safe meetup zones under a cryptographically authenticated zero-fraud handshake protocol and a tamper-resistant Campus Karma reputation ledger.
 
+[![Architecture diagram of yatharthasrivastava/campus_connect](https://gitdiagram.com/yatharthasrivastava/campus_connect/diagram.png)](https://gitdiagram.com/yatharthasrivastava/campus_connect?utm_source=readme&utm_medium=picture)
+
 ---
 
 ## 🚀 Key Features
